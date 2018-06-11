@@ -1,0 +1,6 @@
+[package]
+name = "gtk_signal_disconnect_test"
+version = "0.1.0"
+authors = ["Farzeen"]
+
+[dependencies]
