@@ -16,6 +16,11 @@ fn main() {
     unsafe {
         let num_signals_found = gobject_ffi::g_signal_handlers_disconnect_matched(
             button.to_glib_none().0, //instance
+            // I am using `G_SIGNAL_MATCH_DETAIL` here because I thought this had something to do with the signal
+            // name.
+            // What I'm trying to achieve is to delete the signal handler connected above using
+            // `connect_clicked`. Or if that is not possible, delete all signal handlers connected
+            // to `button` without destroying the object.
             gobject_ffi::G_SIGNAL_MATCH_DETAIL,
             0,
             0,
